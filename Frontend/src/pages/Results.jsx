@@ -13,7 +13,7 @@ const Results = () => {
   const handleDecompress = async () => {
     try {
       setLoading(true);
-      const fileResponse = await fetch(`http://localhost:4000${result.downloadPath}`);
+      const fileResponse = await fetch(`https://comp-decomp-portal-1.onrender.com${result.downloadPath}`);
       const blob = await fileResponse.blob();
       const filename = result.downloadPath.split("/").pop();
       const file = new File([blob], filename, { type: blob.type });
@@ -21,7 +21,7 @@ const Results = () => {
       const formData = new FormData();
       formData.append("myfile", file);
 
-      const res = await fetch(`http://localhost:4000/api/decompress/${result.algorithm}`, {
+      const res = await fetch(`https://comp-decomp-portal-1.onrender.com/api/decompress/${result.algorithm}`, {
         method: "POST",
         body: formData,
       });
@@ -39,7 +39,7 @@ const Results = () => {
 
   const handleDownload = async (filePath, isForcedTxt = true) => {
     try {
-      const res = await fetch(`http://localhost:4000${filePath}`);
+      const res = await fetch(`https://comp-decomp-portal-1.onrender.com${filePath}`);
       const blob = await res.blob();
       let filename = filePath.split("/").pop();
 
