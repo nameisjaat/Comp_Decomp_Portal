@@ -41,7 +41,7 @@ const Home = () => {
 
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:4000/api/compress/${algorithm}`, {
+      const res = await fetch(`https://comp-decomp-portal-1.onrender.com/api/compress/${algorithm}`, {
         method: "POST",
         body: formData
       });
